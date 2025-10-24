@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Ama 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffd9ec);
+      text-align: center;
+      color: #333;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 80px;
+      font-size: 2.6em;
+      color: #ff4d8d;
+      animation: fadeIn 2s ease-in-out;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 600px;
+      line-height: 1.8;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .heart {
+      font-size: 2.5em;
+      margin: 20px 0;
+      animation: beat 1s infinite;
+      color: #ff3366;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 1em;
+      color: #777;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    button {
+      background-color: #ff4d8d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ff6699;
+      transform: scale(1.1);
+    }
+    .floating-heart {
+      position: fixed;
+      font-size: 1.5em;
+      color: #ff4d8d;
+      animation: floatUp 2s ease-in forwards;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <h1>Hai, Ama 💞</h1>
+  <p>
+    Aku cuma mau bilang makasih banyak ya, Ama.  
+    Buat semua effort, perhatian, dan waktu yang kamu kasih buat aku.  
+    Aku tau kadang aku nyebelin, tapi kamu tetap sabar dan selalu berusaha buat aku senyum 🥹  
+  </p>
+  <p>
+    Kamu itu istimewa banget buat aku.  
+    Terima kasih udah jadi tempat nyaman, lucu, dan penuh semangat di hidupku.  
+    Aku sayang kamu, Ama — lebih dari yang bisa aku tulis di halaman kecil ini 💕  
+  </p>
+
+  <button id="loveButton">💗 Klik kalau kamu sayang aku 💗</button>
+
+  <div class="heart">💖💖💖</div>
+
+  <audio controls autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/s/3h6n7m0n0v0o4fi/about-you.mp3" type="audio/mpeg">
+  </audio>
+
+  <footer>— dari Gaga, yang selalu sayang Ama 💗 —</footer>
+
+  <script>
+    // efek bintang
+    const stars = document.querySelector('.stars');
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      stars.appendChild(star);
+    }
+
+    // efek love terbang
+    const loveButton = document.getElementById('loveButton');
+    loveButton.addEventListener('click', () => {
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        heart.textContent = '💖';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = (window.innerHeight - 50) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000);
+      }
+    });
+  </script>
+</body>
+</html>
